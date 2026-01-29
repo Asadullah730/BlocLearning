@@ -1,6 +1,7 @@
+import 'package:bloc_learning/bloc/counter/counter_bloc.dart';
+import 'package:bloc_learning/bloc/slider/slider_bloc.dart';
 import 'package:bloc_learning/bloc/switch/switch_bloc.dart';
 import 'package:bloc_learning/ui/notification_screen.dart';
-import 'package:bloc_learning/utils/bloc_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: blocProvider,
+      providers: [
+        BlocProvider(create: (context) => CounterBloc()),
+        BlocProvider(create: (context) => SwitchBloc()),
+        BlocProvider(create: (context) => SliderBloc()),
+      ],
+
       child: MaterialApp(
         title: 'Bloc Learning',
         theme: ThemeData(primarySwatch: Colors.blue),

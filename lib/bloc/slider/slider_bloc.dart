@@ -6,23 +6,10 @@ part 'slider_state.dart';
 
 class SliderBloc extends Bloc<SliderEvent, SliderState> {
   SliderBloc() : super(SliderInitial()) {
-    on<IncreaseSliderValue>(_increaseSliderValue);
-    on<DecreaseSliderValue>(_decreaseSliderValue);
+    on<UpdateSlider>(_sliderValues);
   }
 
-  void _increaseSliderValue(
-    IncreaseSliderValue event,
-    Emitter<SliderState> emit,
-  ) {
-    final newValue = (state.sliderValue + 0.1).clamp(0.0, 1.0);
-    emit(state.copyWith(sliderValue: newValue));
-  }
-
-  void _decreaseSliderValue(
-    DecreaseSliderValue event,
-    Emitter<SliderState> emit,
-  ) {
-    final newValue = (state.sliderValue - 0.1).clamp(0.0, 1.0);
-    emit(state.copyWith(sliderValue: newValue));
+  void _sliderValues(UpdateSlider event, Emitter<SliderState> emit) {
+    emit(state.copyWith(sliderValue: event.sliderValue));
   }
 }

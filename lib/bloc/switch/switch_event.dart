@@ -10,3 +10,12 @@ sealed class SwitchEvent extends Equatable {
 class EnableSwitch extends SwitchEvent {}
 
 class DisableSwitch extends SwitchEvent {}
+
+class SliderValues extends SwitchEvent {
+  final double sliderValue;
+
+  const SliderValues({required this.sliderValue});
+
+  @override
+  List<Object> get props => [sliderValue];
+}

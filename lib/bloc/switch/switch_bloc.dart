@@ -9,6 +9,11 @@ class SwitchBloc extends Bloc<SwitchEvent, SwitchState> {
     on<EnableSwitch>(_enableSwitch);
 
     on<DisableSwitch>(_disableSwitch);
+    on<SliderValues>(_sliderValues);
+  }
+
+  void _sliderValues(SliderValues event, Emitter<SwitchState> emit) {
+    emit(state.copyWith(sliderValue: event.sliderValue));
   }
 
   void _enableSwitch(EnableSwitch event, Emitter<SwitchState> emit) {

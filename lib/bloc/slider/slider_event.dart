@@ -7,6 +7,11 @@ sealed class SliderEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class IncreaseSliderValue extends SliderEvent {}
+class UpdateSlider extends SliderEvent {
+  final double sliderValue;
 
-class DecreaseSliderValue extends SliderEvent {}
+  const UpdateSlider({required this.sliderValue});
+
+  @override
+  List<Object> get props => [sliderValue];
+}
