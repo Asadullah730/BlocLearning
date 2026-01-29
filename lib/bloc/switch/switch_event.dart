@@ -7,6 +7,6 @@ sealed class SwitchEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class EnableNotification extends SwitchEvent {}
+class EnableSwitch extends SwitchEvent {}
 
-class DisableNotification extends SwitchEvent {}
+class DisableSwitch extends SwitchEvent {}

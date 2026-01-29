@@ -1,8 +1,8 @@
-import 'package:bloc_learning/ui/counter_screen.dart';
+import 'package:bloc_learning/bloc/switch/switch_bloc.dart';
 import 'package:bloc_learning/ui/notification_screen.dart';
+import 'package:bloc_learning/utils/bloc_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'bloc/counter/counter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +11,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CounterBloc(),
+    return MultiBlocProvider(
+      providers: blocProvider,
       child: MaterialApp(
-        title: 'Bloc Counter Demo',
+        title: 'Bloc Learning',
         theme: ThemeData(primarySwatch: Colors.blue),
         home: const NotificationScreen(),
       ),

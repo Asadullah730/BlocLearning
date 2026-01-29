@@ -4,16 +4,14 @@ sealed class SwitchState extends Equatable {
   final bool isEnabled;
   const SwitchState({this.isEnabled = false});
 
+  SwitchState copyWith({bool? isEnabled}) {
+    return SwitchInitial(isEnabled: isEnabled ?? this.isEnabled);
+  }
+
   @override
   List<Object> get props => [isEnabled];
 }
 
 final class SwitchInitial extends SwitchState {
-  const SwitchInitial({super.isEnabled = false});
-
-  SwitchState copyWith({bool? isEnabled}) {
-    return SwitchInitial(
-      isEnabled: isEnabled ?? this.isEnabled,
-    );
-  }
+  const SwitchInitial({bool isEnabled = false}) : super(isEnabled: isEnabled);
 }

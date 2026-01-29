@@ -26,7 +26,7 @@ class NotificationScreen extends StatelessWidget {
                     value: state.isEnabled,
                     onChanged: (bool value) {
                       context.read<SwitchBloc>().add(
-                        value ? EnableNotification() : DisableNotification(),
+                        value ? EnableSwitch() : DisableSwitch(),
                       );
                     },
                   );
